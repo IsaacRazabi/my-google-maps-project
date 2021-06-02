@@ -1,4 +1,4 @@
-
+console.log(GeolocationPosition);
         function getPosition() {
             if (!navigator.geolocation) {
                 alert("HTML5 Geolocation is not supported in your browser.");
@@ -41,8 +41,8 @@
         }
 
         function initMap(lat, lng) {
-            //            if (!lat) lat = 32.0749831;
-            //            if (!lng) lat = 34.9120554;
+                       if (!lat) lat = 29.553917;
+                       if (!lng) lng = 34.944220;
             var elMap = document.querySelector('#map');
             var options = {
                 center: { lat, lng },
@@ -53,6 +53,7 @@
                 elMap,
                 options
             );
+            console.log(map);
 
             var marker = new google.maps.Marker({
                 position: { lat, lng },

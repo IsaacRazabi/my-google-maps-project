@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>google maps project</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="getPosition()">
+    <div id="map" style="width:100%;height:500px;"></div>
+
+    <h2>Current Position:</h2>
+    <table border="1">
+        <tr>
+            <td>Latitude</td>
+            <td id="latitude"></td>
+        </tr>
+        <tr>
+            <td>Longitude</td>
+            <td id="longitude"></td>
+        </tr>
+        <tr>
+            <td>Accuracy</td>
+            <td id="accuracy"></td>
+        </tr>
+        <tr>
+            <td>Timestamp</td>
+            <td id="timestamp"></td>
+        </tr>
+    </table>
+
+    <p id="locationError"></p>
+
+    
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=mapReady">
+        </script>
+
+<script>
+    
+    function mapReady() {
+        console.log('Map is ready');
+    }
+    </script>
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>

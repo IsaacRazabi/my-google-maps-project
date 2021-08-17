@@ -1,0 +1,9 @@
+.positions-list{
+    flex-basis: 50%;
+}
+.position-table{
+    flex-basis: 50%;
+}
+.flex{
+    display: flex;
+}

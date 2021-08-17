@@ -1,7 +1,38 @@
+<template>
+  <div class="positions-list">
+    <div class="postions"></div>
+  <div id="map" style="width: 100%; height: 500px"></div>
+  <div class="container flex">
+    <table border="1">
+      <tr>
+        <td>Latitude</td>
+        <td id="latitude"></td>
+      </tr>
+      <tr>
+        <td>Longitude</td>
+        <td id="longitude"></td>
+      </tr>
+      <tr>
+        <td>Accuracy</td>
+        <td id="accuracy"></td>
+      </tr>
+      <tr>
+        <td>Timestamp</td>
+        <td id="timestamp"></td>
+      </tr>
+    </table>
+  </div>
+
+
+</template>
+
+
+<script>
+   
+
 let gService=[];
 let gPositions = [];
 const POSITIONS = "POSITIONS";
-
 
 //get currant location of user throw browser
 function getPosition() {
@@ -107,5 +138,36 @@ function onRemoveLocation(lat, lng) {
   removeLocation (lat,lng)
   renderPositions();
 }
+function getPositions(){
+   let positions = loadFromStorage("POSITIONS")||[];
+   return positions;
+}
 
+function removeLocation (lat,lng){
+    let listOfPositions = getPositions();
+    listOfPositions.forEach((pos, idx) => {
+      if (pos.lat === lat && pos.lng === lng) gPositions.splice(idx, 1);
+    });
+    saveToStorage(POSITIONS, gPositions);
+}
 
+function createLocation(){
+    let location = {
+        id,
+        name,
+        lat,
+        lng,
+        weather,
+        createdAt,
+        updateAt,
+    }
+    return location
+}
+
+function checkIfExist (id){
+  let isExist=  GeolocationPosition.every(location => location.is===id);
+  if(isExist) return false;
+  if(!isExist) return true;
+}
+
+</script>
